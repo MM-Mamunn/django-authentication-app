@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-        {% comment %} {% if user.is_authenticated %} {% endcomment %}
-        <h1>Welcome to mmy Website {{user.first_name}}</h1>  
-        {% comment %} {% else %}
-        login please
-        {% endif%%} {% endcomment %}
-    </main>
-	<script src="index.js"></script>
-  </body>
+{%include "header.html"%}
+{% load static %}
+
+
+<body>
+  <main>
+ 
+hi from home.html
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

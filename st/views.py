@@ -2,19 +2,16 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 
 # Create your views here.
 def home(request):
-
-    # if request.user.is_authenticated:
-    # user = authenticate(username="ma")
-    if not request.user.is_superuser:
-        if request.user.is_authenticated:
-            return render(request, "home.html")
+    if not request.user.is_superuser and request.user.is_authenticated:
+        return render(request, "home.html")
     else:
         return render(request, "in.html")
+    return HttpResponse("HI")
     
 def signup(request):
     return render(request, "signin.html")
@@ -35,8 +32,9 @@ def signup2(request):
         return redirect('home')
     else:
         return render(request, "signin.html")
-def logout(request):
-    return HttpResponse("hi")
+def logoutmain(request):
+    logout(request)
+    return redirect('home')
 def loginmain(request):
         return render(request, "login.html")
 def login2(request):
@@ -46,7 +44,8 @@ def login2(request):
         user = authenticate(request,username=username,password=password)
         if user is not None:
             login(request, user)
-            return HttpResponse("logged in")
+            # return HttpResponse("logged in")
+            return redirect('home')
         else:
             messages.error(request,"error")
             return redirect("home")
