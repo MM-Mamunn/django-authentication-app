@@ -10,22 +10,20 @@
   </head>
   <body>
     <main>
-        <form method="POST" action="{% url 'signup2' %}" >
+        <form method="POST" action="{% url 'tsignup' %}" >
             {% csrf_token %}
             <label class>Enter username name: </label><br>
             <input  type="text" name ="username" required></input><br>
-            <label class>Enter First name: </label><br>
+            <label class>Enter id: </label><br>
+            <input  type="text" name ="idd" required></input><br>
+            <label class>Enter Firts name: </label><br>
             <input  type="text" name ="fname" required></input><br>
-            <label class>Enter Last name: </label><br>
+            <label class>Enter last name: </label><br>
             <input  type="text" name ="lname" required></input><br>
-            
-            <label class>Enter Email: </label><br>
-            <input type="email" name ="email" ></input><br>
+            <label class>Enter Department: </label><br>
+            <input  type="text" name ="dept" required></input><br>
             <label class>Enter password: </label><br>
             <input type="password" name ="password" required></input><br>
-            <br>
-            <label class>Enter Advisor:</label><br>
-            <input type="text" name ="advisor" required></input><br>
             <br>
             <input  type="submit" name ="signupp" value="signup"></input><br></br>
         </form>
