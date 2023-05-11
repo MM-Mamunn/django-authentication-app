@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{%block content%}
+hi from home.html
+
+<table class="table table-hover" style="margin-top:20px;margin-left:30px;width:80%;">
+  <thead>
+    <tr>
+      
+      <th scope="col">Subject</th>
+      <th scope="col">Value</th>
+    
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for i in data %}
+    <tr class="table-dark">
+      <td>Advisor: </td>
+      <td>{{i.fullname|capfirst}}</td>
+    </tr>
+    <tr class="table-dark">
+      <td>Id: </td>
+      <td>{{i.teachers_id}}</td>
+    </tr>
+    <tr class="table-dark">
+      <td>Department </td>
+      <td>{{i.department}}</td>
+    </tr>
+  {%endfor%}
+  </tbody>
+</table>
+
+{%endblock %}

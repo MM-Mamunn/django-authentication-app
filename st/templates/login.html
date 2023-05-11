@@ -19,8 +19,30 @@
             <br>
             <input type="submit" name ="login" value="login">login</input><br>
         </form> {% endcomment %}
-
-        <form method="POST" action="{% url 'login2' %}" >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top:20px;margin-left: 10%;margin-right: 10%;">
+          <div class="container-fluid">
+            
+            <div class="collapse navbar-collapse" id="navbarColor02" style="margin-left:40%">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a class="nav-link " href="/">home
+                    <span class="visually-hidden">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/loginmain">Login
+                    <span class="visually-hidden">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signupts">Signup</a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+        {% comment %} <form method="POST" action="{% url 'login2' %}" >
             {% csrf_token %}
         <div class="form-group mb-7" style="margin-left:10px;">
             
@@ -35,7 +57,36 @@
               </div>
           
           <button type="submit" class="btn btn-dark " style="margin-top:20px;margin-left:10px;" name="login">Dark</button>
-        </form> 
+        </form>  {% endcomment %}
+
+
+        <form method="POST" action="{% url 'login2' %} " style="margin-left:10%; width:40%;margin-top:20px; ">
+          {% csrf_token %}
+          <div class="form-outline mb-4">
+            <input type="text" id="form2Example1" class="form-control " name="username" required/>
+            <label class="form-label" for="form2Example1">Enter Username name:</label>
+          </div>
+        
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" name="password" class="form-control name=password" required />
+            <label class="form-label" for="form2Example2">Password</label>
+          </div>
+        
+          <!-- 2 column grid layout for inline styling -->
+          <div class="row mb-4">
+           
+          </div>
+        
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4" >Sign in</button>
+        
+          <!-- Register buttons -->
+          <div class="text-center">
+            <p>Not a member? <a href="/signupts">Signup</a></p>
+           
+          </div>
+        </form>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>

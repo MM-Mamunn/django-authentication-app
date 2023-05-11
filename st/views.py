@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
@@ -19,14 +19,16 @@ def home(request):
                     dic={
                         'data':i,
                     }
-            return render(request, "home.html",dic)
+                return render(request, "home.html",dic)
+            
         else :
             return render(request, "thome.html")
     else:
         # return HttpResponse("HI")
         return render(request, "in.html")
     
-    
+def signupts(request):
+    return render(request, "signints.html")   
 def signup(request):
     return render(request, "signin.html")
 def signup2(request):
@@ -67,13 +69,14 @@ def login2(request):
         user = authenticate(request,username=username,password=password)
         if user is not None:
             login(request, user)
-            # return HttpResponse("logged in")
-            return redirect('home')
+            # using redirect to activate '/' url to hover on profile
+            # return redirect('home')
+            return HttpResponseRedirect('/')
         user2 = authenticate(request,username=username2,password=password)
         if user2 is not None:
             login(request, user2)
-            # return HttpResponse("logged in")
-            return redirect('home')
+            # using redirect to activate '/' url to hover on profile
+            return HttpResponseRedirect('/')
         else:
             return HttpResponse("hlw {{username2}} {{password}}")
 
@@ -82,6 +85,25 @@ def login2(request):
     else:
         return render(request, "login.html")
 
+def advisor(request):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'st' in request.user.username:
+            dic={'data':'none'}
+            stdata =students.objects.all()
+            for i in stdata:
+                # if authenticate(request,username=i.username,password=i.password): 
+                if i.username == request.user.username:
+                    # return HttpResponse("hlo")
+                    a = 'tt'+i.advisor
+                    ttdata=teachers.objects.filter(user_name__icontains=a)
+                    dic={
+                        'data':ttdata,
+                    }
+            return render(request, "advisor.html",dic)
+        else:
+            return redirect('home')
+    else:
+        return redirect('home')
 
 
 

@@ -13,6 +13,8 @@ path('login2/',views.login2,name="login2"),
 path('logoutmain/',views.logoutmain,name="logoutmain"),
 path('tsignup/',views.tsignup,name="tsignup"),
 path('tsignup2/',views.tsignup2,name="tsignup2"),
+path('signupts/',views.signupts,name="signupts"),
+path('advisor/',views.advisor,name="advisor"),
 
 # path("login/", include("django.contrib.auth.urls")),
 ]

@@ -14,7 +14,7 @@
         <a href="/logoutmain">logout</a></br> {% endcomment %}
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">{{user.first_name|capfirst}} {{user.last_name|capfirst}} (Student)</a>
+              <a class="navbar-brand" href="/">{{user.first_name|capfirst}} {{user.last_name|capfirst}} (Student)</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -26,10 +26,10 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="#">profile(payment)</a>
+                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="/">profile(payment)</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">advisor</a>
+                    <a class="nav-link {%if request.path == '/advisor/'%} active {%endif%}" href="/advisor">advisor</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/logoutmain">logout</a>

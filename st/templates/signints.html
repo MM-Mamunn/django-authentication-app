@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link href ="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+  </head>
+  <body>
+    <main>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top:20px;margin-left: 10%;margin-right: 10%;">
+            <div class="container-fluid">
+              
+              <div class="collapse navbar-collapse" id="navbarColor02" style="margin-left:40%">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link " href="/">home
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/loginmain">Login
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/signupts">Signup</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+       <a href="/tsignup2" ><button type="button" class="btn btn-outline-primary" style="height: 300px;width:200px;margin-top:10%;margin-left:30%;">Teachers Signup</button></a>
+       <a href="/signup">  <button type="button" class="btn btn-outline-primary" style="height: 300px;width:200px;margin-top:10%">Students Signup</button></a>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
