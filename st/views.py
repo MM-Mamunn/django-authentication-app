@@ -14,7 +14,8 @@ def home(request):
             dic={'data':'error'}
             stdata =students.objects.all()
             for i in stdata:
-                if authenticate(request,username=i.username,password=i.password): 
+                # if authenticate(request,username=i.username,password=i.password): 
+                if i.username == request.user.username:
                     dic={
                         'data':i,
                     }
