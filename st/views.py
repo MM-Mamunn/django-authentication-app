@@ -12,14 +12,18 @@ def home(request):
     if not request.user.is_superuser and request.user.is_authenticated:
         if 'st' in request.user.username:
             dic={'data':'error'}
-            stdata =students.objects.all()
+            
+            # i =students.objects.filter(username__icontains=request.user.username);
+            stdata=students.objects.all()
             for i in stdata:
+                print(i.username)
                 # if authenticate(request,username=i.username,password=i.password): 
                 if i.username == request.user.username:
+                    print('yes')
                     dic={
                         'data':i,
-                    }
-                return render(request, "home.html",dic)
+                        }
+            return render(request, "home.html",dic)
             
         else :
             return render(request, "thome.html")
