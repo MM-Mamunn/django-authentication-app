@@ -104,7 +104,7 @@ def login2(request):
 def advisor(request):
     if not request.user.is_superuser and request.user.is_authenticated:
         if 'st' in request.user.username:
-            dic={'data':'none'}
+            dic={'data':''}
             stdata =students.objects.all()
             for i in stdata:
                 # if authenticate(request,username=i.username,password=i.password): 

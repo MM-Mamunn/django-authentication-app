@@ -2,8 +2,12 @@
 {% load static %}
 
 {%block content%}
-hi from home.html
+{%if not data %}
+<marquee><span class="badge bg-danger fa-lg" style="margin:20%;">No Data Available</span></marquee>
+{%endif%}
 
+
+{% for i in data %}
 <table class="table table-hover" style="margin-top:20px;margin-left:30px;width:80%;">
   <thead>
     <tr>
@@ -15,7 +19,6 @@ hi from home.html
   </thead>
 
   <tbody>
-    {% for i in data %}
     <tr class="table-dark">
       <td>Advisor: </td>
       <td>{{i.fullname|capfirst}}</td>
@@ -28,8 +31,8 @@ hi from home.html
       <td>Department </td>
       <td>{{i.department}}</td>
     </tr>
-  {%endfor%}
   </tbody>
 </table>
+{%endfor%}
 
 {%endblock %}
