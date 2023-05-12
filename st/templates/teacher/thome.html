@@ -1,0 +1,32 @@
+{% extends 'teacher/theader.html' %}
+{% load static %}
+
+{%block content%}
+hi from thome.html'
+
+<table class="table table-hover" style="margin-top:20px;margin-left:30px;width:80%;">
+    <thead>
+      <tr>
+        
+        <th scope="col">Subject</th>
+        <th scope="col">Value</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-dark">
+        <td>Name: </td>
+        <td>{{data.fullname|capfirst}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>id </td>
+        <td>{{data.teachers_id}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>Department </td>
+        <td>{{data.department}}</td>
+      </tr>
+     
+    </tbody>
+  </table>
+{%endblock %}

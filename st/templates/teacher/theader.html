@@ -26,9 +26,11 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="#">Process result(payment)</a>
+                    <a class="nav-link {%if request.path == '/searchstudent/'%} active {%elif request.path == '/searchstudent2/'%} active {%endif%}" href="/searchstudent">Search</a>
                   </li>
-                 
+                  <li class="nav-item">
+                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="#">Process result(payment)</a>
+                  </li>                 
                   <li class="nav-item">
                     <a class="nav-link" href="/logoutmain">logout</a>
                   </li>

@@ -36,7 +36,7 @@ def home(request):
                     dic={
                         'data':i,
                         }
-            return render(request, "thome.html",dic)
+            return render(request, "teacher/thome.html",dic)
         else:
             return HttpResponse("error")
     else:
@@ -74,6 +74,7 @@ def logoutmain(request):
     logout(request)
     return redirect('loginmain')
 def loginmain(request):
+        logout(request)
         return render(request, "login.html")
 def login2(request):
     if request.method == 'POST':
@@ -94,12 +95,9 @@ def login2(request):
             # using redirect to activate '/' url to hover on profile
             return HttpResponseRedirect('/')
         else:
-            return HttpResponse("hlw {{username2}} {{password}}")
-
-            messages.error(request,"error")
             return redirect("home")
     else:
-        return render(request, "login.html")
+        return HttpResponseRedirect('/loginmain')
 
 def advisor(request):
     if not request.user.is_superuser and request.user.is_authenticated:
@@ -154,8 +152,7 @@ def tsignup(request):
 def allstudent(request):
     if not request.user.is_superuser and request.user.is_authenticated:
         if 'tt' in request.user.username:
-            dic={'data':'error'}
-            
+            dic={'data':'error'}         
             
             # i =students.objects.filter(username__icontains=request.user.username);
             stdata=students.objects.all()
@@ -169,9 +166,38 @@ def allstudent(request):
             dic={
                         'data':l,
                         }
-            return render(request, "allstudent.html",dic)
+            return render(request, "teacher/allstudent.html",dic)
+        else:
+            return redirect('home')
+    
+    else:
+            return redirect('home')
+
+
+
+def searchstudent(request):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            return render(request, 'teacher/searchstudent.html')
         else:
             return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
     
+
+def searchstudent2(request):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            dic={'data':'error'}
+            if request.method == 'POST':
+                name=request.POST.get('name')
+                name='st'+name
+                data= students.objects.filter(username__iexact=name)
+                dic={'data':data}
+                return render(request, 'teacher/showstudent.html',dic)
+            else:
+                return HttpResponseRedirect('/')
+        else:
+            return HttpResponseRedirect('/')
     else:
         return HttpResponseRedirect('/')

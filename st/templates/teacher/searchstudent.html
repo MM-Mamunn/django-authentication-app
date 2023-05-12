@@ -1,0 +1,16 @@
+{% extends 'teacher/theader.html' %}
+{% load static %}
+
+{%block content%}
+<form method="POST" action="{% url 'searchstudent2' %} " style="margin-left:10%; width:40%;margin-top:20px; ">
+    {% csrf_token %}
+    <fieldset>
+     
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="form-label mt-4">Name</label>
+            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+      <button type="submit" class="btn btn-primary btn-block mb-4" >Search</button>
+        
+    </form>
+{%endblock %}
