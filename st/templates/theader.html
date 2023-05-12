@@ -21,7 +21,7 @@
               <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto" style="margin-left:60%;">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">All students
+                    <a class="nav-link  {%if request.path == '/allstudent/'%} active {%endif%} " href="/allstudent">All students
                       <span class="visually-hidden">(current)</span>
                     </a>
                   </li>

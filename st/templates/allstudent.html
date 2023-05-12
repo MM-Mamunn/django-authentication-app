@@ -4,6 +4,7 @@
 {%block content%}
 hi from thome.html'
 
+{%for i in data%}
 <table class="table table-hover" style="margin-top:20px;margin-left:30px;width:80%;">
     <thead>
       <tr>
@@ -14,19 +15,28 @@ hi from thome.html'
       </tr>
     </thead>
     <tbody>
+     
       <tr class="table-dark">
         <td>Name: </td>
-        <td>{{data.fullname|capfirst}}</td>
+        <td>{{i.name|capfirst}}</td>
       </tr>
       <tr class="table-dark">
-        <td>id </td>
-        <td>{{data.teachers_id}}</td>
+        <td>Roll </td>
+        <td>{{i.roll}}</td>
       </tr>
       <tr class="table-dark">
-        <td>Department </td>
-        <td>{{data.department}}</td>
+        <td>CGPA </td>
+        <td>{{i.cgpa}}</td>
       </tr>
+      <tr class="table-dark">
+        <td>Advisor</td>
+        <td>{{i.advisor}}</td>
+      </tr>
+    </br>
      
     </tbody>
   </table>
+  {%endfor%}
+  
+
 {%endblock %}

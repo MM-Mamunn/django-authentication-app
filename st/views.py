@@ -25,8 +25,20 @@ def home(request):
                         }
             return render(request, "home.html",dic)
             
-        else :
-            return render(request, "thome.html")
+        elif 'tt' in request.user.username:            
+            # i =students.objects.filter(username__icontains=request.user.username);
+            ttdata=teachers.objects.all()
+            for i in ttdata:
+                print(i.user_name)
+                # if authenticate(request,username=i.username,password=i.password): 
+                if i.user_name == request.user.username:
+                    print('yes')
+                    dic={
+                        'data':i,
+                        }
+            return render(request, "thome.html",dic)
+        else:
+            return HttpResponse("error")
     else:
         # return HttpResponse("HI")
         return render(request, "in.html")
@@ -60,7 +72,7 @@ def signup2(request):
         return render(request, "signin.html")
 def logoutmain(request):
     logout(request)
-    return redirect('home')
+    return redirect('loginmain')
 def loginmain(request):
         return render(request, "login.html")
 def login2(request):
@@ -138,3 +150,28 @@ def tsignup(request):
         return redirect('home')
     else:
         return HttpResponse("hi")
+    
+def allstudent(request):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            dic={'data':'error'}
+            
+            
+            # i =students.objects.filter(username__icontains=request.user.username);
+            stdata=students.objects.all()
+            l=[]
+            for i in stdata:
+                t = 'tt'+i.advisor
+                # if authenticate(request,username=i.username,password=i.password): 
+                if t == request.user.username:
+                    l.append(i)
+            
+            dic={
+                        'data':l,
+                        }
+            return render(request, "allstudent.html",dic)
+        else:
+            return HttpResponseRedirect('/')
+    
+    else:
+        return HttpResponseRedirect('/')
