@@ -201,3 +201,16 @@ def searchstudent2(request):
             return HttpResponseRedirect('/')
     else:
         return HttpResponseRedirect('/')
+    
+def DELETE(request, id):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            dic={'n':0}
+            if request.method == 'POST':
+                st=students.objects.get(pk=id)
+                st2=User.objects.get(username=st.username)
+                st.delete()
+                st2.delete()
+                return render(request,'teacher/success.html',{'n':1})       
+            else:
+                return render(request,'teacher/success.html',dic)
