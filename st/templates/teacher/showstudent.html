@@ -8,7 +8,7 @@
     <thead>
       <tr>
         
-        <th scope="col">Subject</th>
+        <th scope="col"><i class="fa-solid fa-graduation-cap"></i>Subject</th>
         <th scope="col">Value</th>
       
       </tr>
@@ -31,7 +31,7 @@
         <td>{{i.advisor}}</td>
       </tr>
       <tr class="table-active">
-        <td>Delete</td>
+        <td>Delete <i class="fa-sharp fa-solid fa-diamond-turn-right"></i></td>
         <td>
           <form action="{% url 'DELETE' i.id %}" method="post">
             {% csrf_token %}

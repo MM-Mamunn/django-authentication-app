@@ -94,10 +94,8 @@ def login2(request):
             login(request, user2)
             # using redirect to activate '/' url to hover on profile
             return HttpResponseRedirect('/')
-        else:
-            return redirect("home")
-    else:
-        return HttpResponseRedirect('/loginmain')
+        
+    return HttpResponseRedirect('/')
 
 def advisor(request):
     if not request.user.is_superuser and request.user.is_authenticated:
@@ -197,10 +195,7 @@ def searchstudent2(request):
                 return render(request, 'teacher/showstudent.html',dic)
             else:
                 return HttpResponseRedirect('/')
-        else:
-            return HttpResponseRedirect('/')
-    else:
-        return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/')
     
 def DELETE(request, id):
     if not request.user.is_superuser and request.user.is_authenticated:
@@ -214,5 +209,5 @@ def DELETE(request, id):
                 return render(request,'teacher/success.html',{'n':1})       
             else:
                 return render(request,'teacher/success.html',dic)
-    else:
-        return HttpResponseRedirect('/')
+
+    return HttpResponseRedirect('/')
