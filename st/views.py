@@ -192,7 +192,7 @@ def searchstudent2(request):
             if request.method == 'POST':
                 name=request.POST.get('name')
                 name='st'+name
-                data= students.objects.filter(username__iexact=name)
+                data= students.objects.filter(username__icontains=name)
                 dic={'data':data}
                 return render(request, 'teacher/showstudent.html',dic)
             else:

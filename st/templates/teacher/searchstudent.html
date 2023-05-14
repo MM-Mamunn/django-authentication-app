@@ -2,15 +2,15 @@
 {% load static %}
 
 {%block content%}
-<form method="POST" action="{% url 'searchstudent2' %} " style="margin-left:10%; width:40%;margin-top:20px; ">
+<form method="POST" action="{% url 'searchstudent2' %} " style="margin-left:35%; width:40%;margin-top:12%; ">
     {% csrf_token %}
     <fieldset>
      
         <div class="form-group">
             <label for="exampleInputEmail1" class="form-label mt-4">Enter students userName</label>
-            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Students username">
+            <input type="text" name="name" class="form-control" id="exampleInputEmail1"  placeholder="Enter Students username" style="width:60%">
           </div>
-      <button type="submit" class="btn btn-primary btn-block mb-4" >Search</button>
+      <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Search</button>
         
     </form>
 {%endblock %}
