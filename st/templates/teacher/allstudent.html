@@ -37,16 +37,16 @@
       <tr class="table-active">
         <td>Delete</td>
         <td>
-          <form action="{% url 'delete' i.id %}" method="post">
+          <form action="{% url 'DELETE' i.id %}" method="post">
             {% csrf_token %}
-            <button type="button" class="btn btn-danger" style="margin-left:2%;width:100%;height:97%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{i.username}}</button>
-            {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
+            <button type="submit" class="btn btn-danger" style="margin-left:2%;width:100%;height:97%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{i.username}}</button>
+             {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
           </form>
         </td>
         
       </tr>
     </br>
-     
+
   
 
     </tbody>

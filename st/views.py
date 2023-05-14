@@ -214,3 +214,5 @@ def DELETE(request, id):
                 return render(request,'teacher/success.html',{'n':1})       
             else:
                 return render(request,'teacher/success.html',dic)
+    else:
+        return redirect('home')
