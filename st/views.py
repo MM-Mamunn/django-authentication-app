@@ -67,9 +67,9 @@ def signup2(request):
         # else
         messages.success(request,"Signup successfull")
         
-        return redirect('home')
+        return HttpResponseRedirect('/')
     else:
-        return render(request, "signin.html")
+        return HttpResponseRedirect('/')
 def logoutmain(request):
     logout(request)
     return redirect('loginmain')
@@ -145,9 +145,9 @@ def tsignup(request):
         # else
         messages.success(request,"Signup successfull")
         
-        return redirect('home')
+        return HttpResponseRedirect('/')
     else:
-        return render(request, "tsignin.html")
+        return HttpResponseRedirect('/')
     
 def allstudent(request):
     if not request.user.is_superuser and request.user.is_authenticated:
@@ -215,4 +215,4 @@ def DELETE(request, id):
             else:
                 return render(request,'teacher/success.html',dic)
     else:
-        return redirect('home')
+        return HttpResponseRedirect('/')
