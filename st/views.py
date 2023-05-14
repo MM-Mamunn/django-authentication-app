@@ -147,7 +147,7 @@ def tsignup(request):
         
         return redirect('home')
     else:
-        return HttpResponse("hi")
+        return render(request, "tsignin.html")
     
 def allstudent(request):
     if not request.user.is_superuser and request.user.is_authenticated:
