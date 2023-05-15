@@ -31,15 +31,19 @@
         <td>{{i.advisor}}</td>
       </tr>
       <tr class="table-active">
-        <td>Delete <i class="fa-sharp fa-solid fa-diamond-turn-right"></i></td>
+        <td>Delete & Update <i class="fa-sharp fa-solid fa-diamond-turn-right fa-lg"></i></td>
         <td>
           <form action="{% url 'DELETE' i.id %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger" style="margin-left:2%;width:100%;height:97%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{i.username}}</button>
+            <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{i.username}}</button>
+            {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
+          </form>
+          <form action="{% url 'EDIT' i.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-info" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-pen"></i>Edit</button>
             {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
           </form>
         </td>
-        
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,27 @@
+{% extends 'teacher/theader.html' %}
+{% load static %}
+
+{%block content%}
+<label for="exampleInputEmail1" class="form-label mt-4" style="margin:1px">Update data of {{st.username}} </label><br>
+
+<form method="POST" action="{% url 'EDIT2' uid %}" >
+    {% csrf_token %}
+    <fieldset style="margin:1px">
+    <div class="form-group"style="margin:1px" >
+    <label for="exampleInputEmail1" class="form-label mt-4" style="margin:1px">Enter Roll </label><br>
+    <input  type="text" name ="roll" class="form-control" placeholder="Enter Roll" style="width:40%;margin:1px;height:40px"required></input><br>
+    <label for="exampleInputEmail1" class="form-label mt-4" style="margin:1px">Enter CGPA: </label><br>
+    <input class="form-control"   placeholder="Enter CGPA" style="width:40%;margin:1px;height:40px"  type="number" min="0" max="4" step="0.1" name ="cgpa" required></input><br>
+    
+    <label for="exampleInputEmail1" class="form-label mt-4" style="margin:1px">Enter Advisor:</label><br>
+    <input class="form-control"  placeholder="Enter Advisor" style="width:40%;margin:1px;height:40px" type="text" name ="advisor" required></input><br>
+    <br>
+    </div>
+    <input  type="submit"  class="btn btn-primary btn-block mb-4" style="margin-top:4px" name ="Update" value="Update"></input><br></br>
+
+
+  
+        </fieldset>
+</form>
+
+{%endblock %}

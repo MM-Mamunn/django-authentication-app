@@ -13,27 +13,37 @@
     <main>
         {% comment %} welcome  {{user.first_name}}</br>
         <a href="/logoutmain">logout</a></br> {% endcomment %}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-right:1px;margin-left:1px">
             <div class="container-fluid">
               <a class="navbar-brand" href="/">{{user.first_name|capfirst}} {{user.last_name|capfirst}} (<i class="fa-sharp fa-solid fa-person-chalkboard"></i> Teachers)</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto" style="margin-left:60%;">
-                  <li class="nav-item" style="width: 120px;font-size:12px">
-                    <a class="nav-link  {%if request.path == '/allstudent/'%} active {%endif%} " href="/allstudent">All students
+              <div class="collapse navbar-collapse" id="navbarColor01"  style="margin-right:10px">
+                <ul class="navbar-nav me-auto" style="margin-left:53%;">
+                  <li class="nav-item" style="margin:1px">
+                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="/" style="width: 120px;font-size:15px"><i class="fa-solid fa-user"></i>Process result</a>
+                  </li>  
+                  <li class="nav-item" style="width: 120px;font-size:12px;margin:1px">
+                    <a class="nav-link  {%if request.path == '/allstudent/'%} active {%endif%} " href="/allstudent" style="width: 120px;font-size:15px"><i class="fa-solid fa-graduation-cap"></i>All students
                       <span class="visually-hidden">(current)</span>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link {%if request.path == '/searchstudent/'%} active {%elif request.path == '/searchstudent2/'%} active {%endif%}" href="/searchstudent">Search</a>
+                  <li class="nav-item" style="margin:1px">
+                    <a class="nav-link {%if request.path == '/searchstudent/'%} active {%elif request.path == '/searchstudent2/'%} active {%endif%}" href="/searchstudent" style="width: 90px;font-size:15px"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="/" style="width: 120px;font-size:13px">Process result</a>
-                  </li>                 
-                  <li class="nav-item">
-                    <a class="nav-link" href="/logoutmain">logout</a>
+                  <li class="nav-item dropdown" style="margin:1px">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:19px"><i class="fa-solid fa-circle-info"></i>Other</a>
+                    <div class="dropdown-menu" >
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                  </li>               
+                  <li class="nav-item" style="margin:1px">
+                    <a class="nav-link" href="/logoutmain" style="width: 120px;font-size:19px"><i class="fa-solid fa-right-from-bracket"></i>logout</a>
                   </li>
                   
                 </ul>

@@ -211,3 +211,30 @@ def DELETE(request, id):
                 return render(request,'teacher/success.html',dic)
 
     return HttpResponseRedirect('/')
+
+def EDIT(request,id):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            st=students.objects.get(pk=id)
+            dic={'uid':id,
+                 'st':st}
+            return render(request,'teacher/EDIT.html',dic)
+        else:
+            return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/')
+
+def EDIT2(request,uid):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            roll=request.POST.get('roll')
+            cgpa=request.POST.get('cgpa')
+            advisor=request.POST.get('advisor')
+            st=students.objects.get(pk=uid)
+            st.roll=roll
+            st.cgpa=cgpa
+            st.advisor=advisor
+            st.save()
+            return render(request,'teacher/success.html',{'n':1}) 
+        else:
+            return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/')
