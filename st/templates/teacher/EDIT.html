@@ -1,27 +1,82 @@
 {% extends 'teacher/theader.html' %}
 {% load static %}
 
-{%block content%}
-<label for="exampleInputEmail1" class="form-label mt-4" style="margin:1px">Update data of {{st.username}} </label><br>
 
-<form method="POST" action="{% url 'EDIT2' uid %}" >
+{%block content%} 
+{% comment %} <marquee>
+<div class="card text-white bg-dark mb-3" style="margin:5px 25%;max-width: 22rem;max-height:250px">
+
+      <div class="card-body">
+        <h4 class="card-title">Options</h4>
+        <p class="card-text"><i class="fa-solid fa-pen-nib"></i> Leave empty the field you don't want to update</p>
+      </div>
+    </div>
+</marquee> {% endcomment %}
+    <span class="badge rounded-pill bg-info"><i class="fa-solid fa-pen"></i>Update data of {{st.username}}</span>
+<div style="display: flex">
+<form method="POST" action="{% url 'EDIT2' uid %}" style="width: 49%" >
     {% csrf_token %}
-    <fieldset style="margin:1px">
-    <div class="form-group"style="margin:1px" >
-    <label for="exampleInputEmail1" class="form-label mt-4" style="margin:1px">Enter Roll </label><br>
-    <input  type="text" name ="roll" class="form-control" placeholder="Enter Roll" style="width:40%;margin:1px;height:40px"required></input><br>
-    <label for="exampleInputEmail1" class="form-label mt-4" style="margin:1px">Enter CGPA: </label><br>
-    <input class="form-control"   placeholder="Enter CGPA" style="width:40%;margin:1px;height:40px"  type="number" min="0" max="4" step="0.1" name ="cgpa" required></input><br>
+   
+    <div class="form-group"style="margin:3px" >
+    <label for="exampleInputEmail1" class="form-label mt-1" style="margin:3px">Enter Roll </label><br>
+    <input  type="text" name ="roll" class="form-control" placeholder="Enter Roll" style="width:80%;margin:3px;height:40px"></input><br>
+    <label for="exampleInputEmail1" class="form-label mt-1" style="margin:3px">Enter CGPA: </label><br>
+    <input class="form-control "   placeholder="Enter CGPA" style="width:80%;margin:3px;height:40px"  type="number" min="0" max="4" step="0.01" name ="cgpa" ></input><br>
     
-    <label for="exampleInputEmail1" class="form-label mt-4" style="margin:1px">Enter Advisor:</label><br>
-    <input class="form-control"  placeholder="Enter Advisor" style="width:40%;margin:1px;height:40px" type="text" name ="advisor" required></input><br>
+    <label for="exampleInputEmail1" class="form-label mt-1" style="margin:3px">Enter Advisor:</label><br>
+    <input class="form-control"  placeholder="Enter Advisor" style="width:80%;margin:3px;height:40px" type="text" name ="advisor" ></input><br>
     <br>
     </div>
-    <input  type="submit"  class="btn btn-primary btn-block mb-4" style="margin-top:4px" name ="Update" value="Update"></input><br></br>
+    <input  type="submit"  class="btn btn-primary btn-block mb-4" style="margin:3px" name ="Update" value="Update"></input><br></br>
 
-
-  
-        </fieldset>
 </form>
 
+<table class="table table-hover" style="margin-top:0px;margin-left:10px;width:49%;">
+    <thead>
+
+      <tr>
+        
+        <th scope="col"><i class="fa-solid fa-graduation-cap"></i>Current Data of {{st.username}}<br></th>
+        <th scope="col">Value</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-dark">
+        <td>Name: </td>
+        <td>{{st.name|capfirst}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>Roll </td>
+        <td>{{st.roll}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>CGPA </td>
+        <td>{{st.cgpa}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>Advisor</td>
+        <td>{{st.advisor}}</td>
+      </tr>
+      <tr class="table-active">
+        <td>Delete & Update <i class="fa-sharp fa-solid fa-diamond-turn-right fa-lg"></i></td>
+        <td>
+          <form action="{% url 'DELETE' st.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{st.username}}</button>
+            {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{st.username}}</button> {% endcomment %}
+          </form>
+          <form action="{% url 'EDIT' st.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-info" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-pen"></i>Edit</button>
+            {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{st.username}}</button> {% endcomment %}
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</div>
 {%endblock %}

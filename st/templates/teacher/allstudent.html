@@ -65,7 +65,7 @@ odd
 
   {%for i in data%}
 
-  {% if forloop.counter|divisibleby:3 %} 
+  {% if not forloop.counter|divisibleby:2 %} 
 <div style="display:flex">
 
 {%elif  forloop.counter == 1 %}

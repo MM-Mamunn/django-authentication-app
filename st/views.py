@@ -217,7 +217,7 @@ def EDIT(request,id):
         if 'tt' in request.user.username:
             st=students.objects.get(pk=id)
             dic={'uid':id,
-                 'st':st}
+                'st':st}
             return render(request,'teacher/EDIT.html',dic)
         else:
             return HttpResponseRedirect('/')
@@ -230,9 +230,12 @@ def EDIT2(request,uid):
             cgpa=request.POST.get('cgpa')
             advisor=request.POST.get('advisor')
             st=students.objects.get(pk=uid)
-            st.roll=roll
-            st.cgpa=cgpa
-            st.advisor=advisor
+            if roll is not '':
+                st.roll=roll
+            if cgpa is not '':
+                st.cgpa=cgpa
+            if advisor is not '':
+                st.advisor=advisor
             st.save()
             return render(request,'teacher/success.html',{'n':1}) 
         else:
