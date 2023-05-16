@@ -4,7 +4,7 @@
 {%block content%}
 
 {%if not data %}
-<marquee><span class="badge bg-danger fa-lg" style="margin:20%;">No Data Available</span></marquee>
+<marquee  scrollamount='30' behavior='slide'><span class="badge bg-danger fa-lg" style="margin:20%;">No Data Available</span></marquee>
 {%endif%}
 {% comment %} {%for i in data%}
 {% if forloop.counter|divisibleby:2 %} 

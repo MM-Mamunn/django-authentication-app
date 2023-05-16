@@ -60,32 +60,32 @@
         </form>  {% endcomment %}
 
 
-        <form method="POST" action="{% url 'login2' %} " style="margin-left:10%; width:40%;margin-top:20px; ">
+        <form method="POST" action="{% url 'login2' %} " style="margin-left:32%; width:40%;margin-top:30px;border:3px solid black;border-radius:5px ">
           {% csrf_token %}
-          <div class="form-outline mb-4">
+          <div class="form-outline mb-2 ms-2 mt-2 me-2">
             <input type="text" id="form2Example1" class="form-control " name="username" required/>
-            <label class="form-label" for="form2Example1">Enter Username name:</label>
+            <label class="form-label" for="form2Example1">Enter Username name</label>
           </div>
         
           <!-- Password input -->
-          <div class="form-outline mb-4">
+          <div class="form-outline mb-2 ms-2 me-2">
             <input type="password" id="form2Example2" name="password" class="form-control name=password" required />
             <label class="form-label" for="form2Example2">Password</label>
           </div>
         
           <!-- 2 column grid layout for inline styling -->
-          <div class="row mb-4">
+          <div class="row mb-0 ms-2">
            
           </div>
-        
+          <div class="row mb-0 ms-1" >
+            <small><p>Not a member? <a href="/signupts">Signup</a></p></small>
+           
+          </div>
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-block mb-4" >Sign in</button>
+          <button type="submit" class="btn btn-primary btn-block mb-2 ms-2 mt-2" >Log in</button>
         
           <!-- Register buttons -->
-          <div class="text-center">
-            <p>Not a member? <a href="/signupts">Signup</a></p>
-           
-          </div>
+         
         </form>
 
     </main>

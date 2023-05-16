@@ -12,7 +12,7 @@
       </div>
     </div>
 </marquee> {% endcomment %}
-    <span class="badge rounded-pill bg-info"><i class="fa-solid fa-pen"></i>Update data of {{st.username}}</span>
+    <span class="badge rounded-pill bg-info"><i class="fa-solid fa-pen"></i>Update data of {{st.name}}</span>
 <div style="display: flex">
 <form method="POST" action="{% url 'EDIT2' uid %}" style="width: 49%" >
     {% csrf_token %}
@@ -36,7 +36,7 @@
 
       <tr>
         
-        <th scope="col"><i class="fa-solid fa-graduation-cap"></i>Current Data of {{st.username}}<br></th>
+        <th scope="col"><i class="fa-solid fa-graduation-cap"></i>Current Data of {{st.name}}<br></th>
         <th scope="col">Value</th>
       
       </tr>
@@ -59,16 +59,11 @@
         <td>{{st.advisor}}</td>
       </tr>
       <tr class="table-active">
-        <td>Delete & Update <i class="fa-sharp fa-solid fa-diamond-turn-right fa-lg"></i></td>
+        <td>Delete  <i class="fa-sharp fa-solid fa-diamond-turn-right fa-lg"></i></td>
         <td>
           <form action="{% url 'DELETE' st.id %}" method="post">
             {% csrf_token %}
             <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{st.username}}</button>
-            {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{st.username}}</button> {% endcomment %}
-          </form>
-          <form action="{% url 'EDIT' st.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-info" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-pen"></i>Edit</button>
             {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{st.username}}</button> {% endcomment %}
           </form>
         </td>

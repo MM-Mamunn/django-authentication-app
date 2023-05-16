@@ -9,7 +9,7 @@
     <link href ="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
   </head>
-  <body>
+  <body style ="background-color:grey">
     <main>
         {% comment %} <a href="/signup">SignUp</a></br>
         <a href="/loginmain">Login</a></br>
@@ -45,7 +45,7 @@
           </div>
         </nav>
    
-      
+        <marquee  scrollamount= '30' behavior='Alternate'>
 <div style="display:flex;">
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem; margin-top:20px;margin-left:10%">
           <div class="card-header">Team Flowers</div>
@@ -55,6 +55,7 @@
           </div>
         </div>
 
+
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem; margin-top:20px;margin-left:1%">
           <div class="card-header">Team Flowers</div>
           <div class="card-body">
@@ -62,9 +63,9 @@
             <p class="card-text">Mamun</br>Rayhan</br>Rafi</p>
           </div>
         </div>
-
+      {% comment %} div end for flex {% endcomment %}
       </div>
-
+    </marquee>
       {% comment %} this div is for grey colour end {% endcomment %}
     </div>
     </main>
