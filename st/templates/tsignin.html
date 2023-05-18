@@ -35,13 +35,13 @@
         </div>
       </nav>
     
-        <form method="POST" action="{% url 'tsignup' %}" >
+        {% comment %} <form method="POST" action="{% url 'tsignup' %}" >
             {% csrf_token %}
             <label class>Enter username name: </label><br>
             <input  type="text" name ="username" required></input><br>
             <label class>Enter id: </label><br>
             <input  type="text" name ="idd" required></input><br>
-            <label class>Enter Firts name: </label><br>
+            <label class>Enter First name: </label><br>
             <input  type="text" name ="fname" required></input><br>
             <label class>Enter last name: </label><br>
             <input  type="text" name ="lname" required></input><br>
@@ -52,6 +52,44 @@
             <br>
             <input  type="submit" name ="signupp" value="signup"></input><br></br>
         </form>
+ {% endcomment %}
+
+
+        <form method="POST" action="{% url 'tsignup' %} " style="margin-left:22%; width:60%;margin-top:15px; margin-bottom:10px;border:3px solid black;border-radius:5px">
+          {% csrf_token %}
+          <div class="form-outline  ms-2 mt-1 me-2">
+            <label class="form-label" for="form2Example1">Enter Username</label>
+            <input type="text" id="form2Example1" class="form-control " name="username" required/>
+          </div>
+          <div class="form-outline  ms-2 mt-1 me-2">
+            <label class="form-label" for="form2Example1">Enter First name</label>
+            <input type="text" id="form2Example1" class="form-control " name="fname" required/>
+          </div>
+          <div class="form-outline  ms-2 mt-1 me-2">
+            <label class="form-label" for="form2Example1">Enter Last name</label>
+            <input type="text" id="form2Example1" class="form-control " name="lname" required/>
+          </div>
+          <div class="form-outline ms-2 mt-1 me-2">
+            <label class="form-label" for="form2Example1">Enter Department</label>
+            <input type="text" id="form2Example1" class="form-control " name="dept" required/>
+          </div>
+          <!-- Password input -->
+          <div class="form-outline  ms-2 me-2">
+            <label class="form-label" for="form2Example2">Password</label>
+            <input type="password" id="form2Example2" name="password" class="form-control name=password" required />
+          </div>
+        
+          <!-- 2 column grid layout for inline styling -->
+           
+        
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary  mb-2 ms-2 mt-4 "  >Sign Up</button>
+        
+          <!-- Register buttons -->
+         
+        </form>
+
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
