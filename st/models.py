@@ -7,6 +7,7 @@ class students(models.Model):
     cgpa = models.FloatField(null=True,default=None)
     advisor =models.CharField(max_length=50,null=True,default=None)
     username=models.CharField(max_length=500,null=True,default=None)
-
     password=models.CharField(max_length=500,null=True,default=None)
     
+    def __str__(self):
+        return self.name

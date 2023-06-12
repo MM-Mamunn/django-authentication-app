@@ -8,3 +8,5 @@ class teachers(models.Model):
     password=models.CharField(max_length=50,null=True,default=None)
     department=models.CharField(max_length=500,null=True,default=None)
     
+    def __str__(self):
+        return self.fullname
