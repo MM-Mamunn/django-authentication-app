@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link href ="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
   </head>
   <body>
     <main>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top:20px;margin-left: 10%;margin-right: 10%;">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top:20px;margin-left: 10%;margin-right: 10%;border-radius:6px;border-style:double;border-color:lightblue">
         <div class="container-fluid">
           
           <div class="collapse navbar-collapse" id="navbarColor02" style="margin-left:40%">
@@ -35,9 +37,9 @@
         </div>
       </nav>
     
-        <form method="POST" action="{% url 'signup2' %}" >
+        {% comment %} <form method="POST" action="{% url 'signup2' %}" >
             {% csrf_token %}
-            <label class>Enter username name: </label><br>
+            <label class>Enter username : </label><br>
             <input  type="text" name ="username" required></input><br>
             <label class>Enter First name: </label><br>
             <input  type="text" name ="fname" required></input><br>
@@ -53,8 +55,54 @@
             <input type="text" name ="advisor" required></input><br>
             <br>
             <input  type="submit" name ="signupp" value="signup"></input><br></br>
+        </form> {% endcomment %}
+
+
+        <form method="POST" action="{% url 'signup2' %} " style="margin-left:22%; width:60%;margin-top:15px; margin-bottom:10px;border:3px solid black;border-radius:5px">
+          {% csrf_token %}
+          <div class="form-outline  ms-2 mt-1 me-2">
+            <label class="form-label" for="form2Example1">Enter Username</label>
+            <input type="text" id="form2Example1" class="form-control " name="username" required/>
+          </div>
+          <div class="form-outline  ms-2 mt-1 me-2">
+            <label class="form-label" for="form2Example1">Enter First name</label>
+            <input type="text" id="form2Example1" class="form-control " name="fname" required/>
+          </div>
+          <div class="form-outline  ms-2 mt-1 me-2">
+            <label class="form-label" for="form2Example1">Enter Last name</label>
+            <input type="text" id="form2Example1" class="form-control " name="lname" required/>
+          </div>
+          <div class="form-outline  ms-2 me-2">
+            <label class="form-label" for="form2Example2">Enter Advisor Name</label>
+            <input type="text" id="form2Example2" name="advisor" class="form-control name=password" required />
+          </div>
+          <div class="form-outline ms-2 mt-1 me-2">
+            <label class="form-label" for="form2Example1">Enter Email</label>
+            <input type="email" id="form2Example1" class="form-control " name="email" required/>
+          </div>
+          <!-- Password input -->
+
+          <div class="form-outline  ms-2 me-2">
+            <label class="form-label" for="form2Example2">Enter Password</label>
+            <input type="password" id="form2Example2" name="password" class="form-control name=password" required />
+          </div>
+          
+          <!-- 2 column grid layout for inline styling -->
+           
+        
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary  mb-2 ms-2 mt-4 "  name ="signupp" >Sign Up</button>
+        
+          <!-- Register buttons -->
+         
         </form>
+
+
+
+
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+  {% include 'footer.html' %}
 </html>

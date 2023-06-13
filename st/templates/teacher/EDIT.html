@@ -63,7 +63,7 @@
         <td>
           <form action="{% url 'DELETE' st.id %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{st.username}}</button>
+            <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{st.name}}</button>
             {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{st.username}}</button> {% endcomment %}
           </form>
         </td>

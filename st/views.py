@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from .models import students
-from tt.models import teachers
+from st.models import teachers
 
 # Create your views here.
 def home(request):

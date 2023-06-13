@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link href ="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
   </head>
   <body>
     <main>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top:20px;margin-left: 10%;margin-right: 10%;">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top:20px;margin-left: 10%;margin-right: 10%;border-radius:6px;border-style:double;border-color:lightblue">
         <div class="container-fluid">
           
           <div class="collapse navbar-collapse" id="navbarColor02" style="margin-left:40%">
@@ -92,5 +94,7 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  
   </body>
+  {% include 'footer.html' %}
 </html>
