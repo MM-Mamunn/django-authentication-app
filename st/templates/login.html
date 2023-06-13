@@ -65,18 +65,19 @@
  <form method="POST" action="{% url 'login2' %} " style="margin-left:32%; width:40%;margin-top:30px;border:3px solid black;border-radius:5px ">
           {% csrf_token %}
           <div class="form-outline mb-2 ms-2 mt-2 me-2">
+            <label class="form-label" for="form2Example1">Enter Username</label>
             <input type="text" id="form2Example1" class="form-control " name="username" required/>
-            <label class="form-label" for="form2Example1">Enter Username name</label>
           </div>
         
           <!-- Password input -->
           <div class="form-outline mb-2 ms-2 me-2">
-            <input type="password" id="form2Example2" name="password" class="form-control name=password" required />
             <label class="form-label" for="form2Example2">Password</label>
+
+            <input type="password" id="form2Example2" name="password" class="form-control name=password" required />
           </div>
         
           <!-- 2 column grid layout for inline styling -->
-          <div class="row mb-0 ms-2">
+          <div class="row mb-0 ms-2"> 
            
           </div>
           <div class="row mb-0 ms-1" >

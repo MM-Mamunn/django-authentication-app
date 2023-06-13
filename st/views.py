@@ -189,9 +189,10 @@ def searchstudent2(request):
             dic={'data':'error'}
             if request.method == 'POST':
                 name=request.POST.get('name')
-                data= students.objects.filter(name__icontains=name)
+                data= students.objects.filter(name__iexact=name)
                 dic={'data':data}
                 return render(request, 'teacher/showstudent.html',dic)
+
             else:
                 return HttpResponseRedirect('/')
     return HttpResponseRedirect('/')
