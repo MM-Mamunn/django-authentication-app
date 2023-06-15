@@ -349,13 +349,10 @@ def EDIT2(request,uid):
     if not request.user.is_superuser and request.user.is_authenticated:
         if 'tt' in request.user.username:
             roll=request.POST.get('roll')
-            cgpa=request.POST.get('cgpa')
             advisor=request.POST.get('advisor')
             st=students.objects.get(pk=uid)
             if roll is not '':
                 st.roll=roll
-            if cgpa is not '':
-                st.cgpa=cgpa
             if advisor is not '':
                 st.advisor=advisor
             st.save()
@@ -423,7 +420,7 @@ def result3(request,id):
                 else:
                     return render(request,'teacher/success.html',{'n':1})
             else:
-                pass
+                return render(request,'teacher/result2.html',dic={'id':id})
         
 
         return HttpResponseRedirect('/')
@@ -446,4 +443,16 @@ def sresult(request):
                     pass
         return HttpResponseRedirect('/')
     return HttpResponseRedirect('/')
-                
+
+def sresult2(request,uid):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            st=students.objects.get(pk=uid)
+            dic={
+                'id':uid,
+                'st':st,
+            }
+            return render(request,'teacher/result2.html',dic)
+        
+    return HttpResponseRedirect('/')
+

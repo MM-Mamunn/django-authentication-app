@@ -14,22 +14,21 @@
 </marquee> {% endcomment %}
     <span class="badge rounded-pill bg-info"><i class="fa-solid fa-pen"></i>Update data of {{st.name}}</span>
 <div style="display: flex">
-<form method="POST" action="{% url 'EDIT2' uid %}" style="width: 49%" >
+<form method="POST" action="{% url 'EDIT2' uid %}" style="width: 49% ;" >
     {% csrf_token %}
    
     <div class="form-group"style="margin:3px" >
     <label for="exampleInput Email1" class="form-label mt-1" style="margin:3px">Enter Roll </label><br>
     <input   type="text" name ="roll" class="form-control" placeholder="Enter Roll" style="width:80%;margin:3px;height:40px"></input ><br>
-    <label for="exampleInput Email1" class="form-label mt-1" style="margin:3px">Enter CGPA: </label><br>
-    <input  class="form-control "   placeholder="Enter CGPA" style="width:80%;margin:3px;height:40px"  type="number" min="0" max="4" step="0.01" name ="cgpa" ></input ><br>
-    
     <label for="exampleInput Email1" class="form-label mt-1" style="margin:3px">Enter Advisor:</label><br>
     <input  class="form-control"  placeholder="Enter Advisor" style="width:80%;margin:3px;height:40px" type="text" name ="advisor" ></input ><br>
     <br>
     </div>
-    <input   type="submit"   class="btn btn-primary btn-block mb-4" style="margin:3px" name ="Update" value="Update"></input ><br></br>
 
+    <input   type="submit"   class="btn btn-primary btn-block mb-4" style="margin:3px" name ="Update" value="Update"></input ><br></br>
+  
 </form>
+
 
 <table class="table table-hover" style="margin-top:0px;margin-left:10px;width:49%;">
     <thead>
@@ -49,6 +48,10 @@
       <tr class="table-dark">
         <td>Roll </td>
         <td>{{st.roll}}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>Semester </td>
+        <td>{{st.sem}}(th)</td>
       </tr>
       <tr class="table-dark">
         <td>CGPA </td>
@@ -74,4 +77,9 @@
 
 
 </div>
+<form method="POST" action="{% url 'sresult2' uid %}" style="width: 49%;margin:2px 1px" >
+  {% csrf_token %}
+  <input   type="submit"   class="btn btn-primary btn-block mb-4" style="margin:3px" value="Result Processing"></input ><br></br>
+
+</form>
 {%endblock %}
