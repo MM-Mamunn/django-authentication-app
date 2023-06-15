@@ -57,6 +57,39 @@ def cgpa_add(request,id,li,n):
             if(n == 8):
                 st.cgpa8=li[7]
             st.save()
+            st=students.objects.get(pk=id)
+            
+            """calculating semester"""
+            semester =1
+            t_cg=0
+            if st.cgpa1 != -1:
+                t_cg+=float(st.cgpa1)
+                semester += 1
+            if st.cgpa2 != -1:
+                t_cg+=float(st.cgpa2)
+                semester += 1
+            if st.cgpa3 != -1:
+                t_cg+=float(st.cgpa3)
+                semester += 1
+            if st.cgpa4 != -1:
+                t_cg+=float(st.cgpa4)
+                semester += 1
+            if st.cgpa5 != -1:
+                t_cg+=float(st.cgpa5)
+                semester += 1
+            if st.cgpa6 != -1:
+                t_cg+=float(st.cgpa6)
+                semester += 1
+            if st.cgpa7 != -1:
+                t_cg+=float(st.cgpa7)
+                semester += 1
+            if st.cgpa8 != -1:
+                t_cg+=float(st.cgpa8)
+                semester += 1
+            st.sem=semester
+            semester -=1
+            st.cgpa = (t_cg/(semester))
+            st.save()
         else:
             return HttpResponseRedirect('/')
     return HttpResponseRedirect('/')
@@ -398,3 +431,19 @@ def result3(request,id):
 
     else:
         return HttpResponseRedirect('/')
+    
+def sresult(request):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'st' in request.user.username:
+            stdata=students.objects.all()
+            for i in stdata:
+                if(i.username == request.user.username):
+                    dic={
+                        'st':i
+                    }
+                    return render(request,'sresult.html',dic)
+                else:
+                    pass
+        return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/')
+                

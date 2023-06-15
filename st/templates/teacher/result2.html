@@ -2,53 +2,53 @@
 {% load static %}
 
 {%block content%}
-
-{{id}}
-
-<form method="POST" action="{% url 'result3' id %} " style="margin-left:35%; width:40%;margin-top:12%; ">
+<span class="badge bg-info" style="margin:1px 40%;height:50px;width 100%;padding:auto;font-size:17px">Result processing of {{st.name}} (Roll:{{.roll}})</span>
+<div style="border:2px double black;border-radius:4px;margin-left:30%;margin-right:30%;margin-top:5px">
+<form method="POST" action="{% url 'result3' id %} " style="margin-left:5%; width:90%;margin-top:2%; ">
     {% csrf_token %}
     <fieldset>
-        <div class="form-group">
+        <div class="form-group" >
             <label for="exampleInputEmail1" class="form-label mt-4">1st semester CGPA:<i class="fa-solid fa-graduation-cap"></i></label>
-            <input type="number" name="cgpa1" class="form-control" id="exampleInputEmail1" {%if st.cgpa1 != -1%} placeholder="{{st.cgpa1}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:60%">
+            <input type="number" name="cgpa1" class="form-control" id="exampleInputEmail1" {%if st.cgpa1 != -1%} placeholder="{{st.cgpa1}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:90%">
             <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Submit</button>  
         </div>
-          <div class="form-group">
+          <div class="form-group" >
             <label for="exampleInputEmail1" class="form-label mt-4">2nt semester CGPA:<i class="fa-solid fa-graduation-cap"></i></label>
-            <input type="number" name="cgpa2" class="form-control" id="exampleInputEmail1" {%if st.cgpa2 != -1%} placeholder="{{st.cgpa2}}"{%endif%}type="numberer" min="0" max="4" step="0.01" style="width:60%">
+            <input type="number" name="cgpa2" class="form-control" id="exampleInputEmail1" {%if st.cgpa2 != -1%} placeholder="{{st.cgpa2}}"{%endif%}type="numberer" min="0" max="4" step="0.01" style="width:90%">
             <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Submit</button> 
         </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label mt-4">3rd semester CGPA:<i class="fa-solid fa-graduation-cap"></i></label>
-            <input type="number" name="cgpa3" class="form-control" id="exampleInputEmail1" {%if st.cgpa3 != -1%} placeholder="{{st.cgpa3}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:60%">
+            <input type="number" name="cgpa3" class="form-control" id="exampleInputEmail1" {%if st.cgpa3 != -1%} placeholder="{{st.cgpa3}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:90%">
             <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Submit</button>  
         </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label mt-4">4th semester CGPA:<i class="fa-solid fa-graduation-cap"></i></label>
-            <input type="number" name="cgpa4" class="form-control" id="exampleInputEmail1" {%if st.cgpa4 != -1%} placeholder="{{st.cgpa4}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:60%">
+            <input type="number" name="cgpa4" class="form-control" id="exampleInputEmail1" {%if st.cgpa4 != -1%} placeholder="{{st.cgpa4}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:90%">
             <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Submit</button>  
         </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label mt-4">5th semester CGPA:<i class="fa-solid fa-graduation-cap"></i></label>
-            <input type="number" name="cgpa5" class="form-control" id="exampleInputEmail1" {%if st.cgpa5 != -1%} placeholder="{{st.cgpa5}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:60%">
+            <input type="number" name="cgpa5" class="form-control" id="exampleInputEmail1" {%if st.cgpa5 != -1%} placeholder="{{st.cgpa5}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:90%">
             <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Submit</button>  
         </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label mt-4">6th semester CGPA:<i class="fa-solid fa-graduation-cap"></i></label>
-            <input type="number" name="cgpa6" class="form-control" id="exampleInputEmail1" {%if st.cgpa6 != -1%} placeholder="{{st.cgpa6}}"{%endif%}type="numberer" min="0" max="4" step="0.01" style="width:60%">
+            <input type="number" name="cgpa6" class="form-control" id="exampleInputEmail1" {%if st.cgpa6 != -1%} placeholder="{{st.cgpa6}}"{%endif%}type="numberer" min="0" max="4" step="0.01" style="width:90%">
             <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Submit</button>  
         </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label mt-4">7th semester CGPA:<i class="fa-solid fa-graduation-cap"></i></label>
-            <input type="number" name="cgpa7" class="form-control" id="exampleInputEmail1" {%if st.cgpa7 != -1%} placeholder="{{st.cgpa7}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:60%">
+            <input type="number" name="cgpa7" class="form-control" id="exampleInputEmail1" {%if st.cgpa7 != -1%} placeholder="{{st.cgpa7}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:90%">
             <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Submit</button>
         </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label mt-4">8th semester CGPA:<i class="fa-solid fa-graduation-cap"></i></label>
-            <input type="number" name="cgpa8" class="form-control" id="exampleInputEmail1" {%if st.cgpa8 != -1%} placeholder="{{st.cgpa8}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:60%">
+            <input type="number" name="cgpa8" class="form-control" id="exampleInputEmail1" {%if st.cgpa8 != -1%} placeholder="{{st.cgpa8}}"{%endif%} type="numberer" min="0" max="4" step="0.01"style="width:90%">
             <button type="submit" class="btn btn-primary btn-block mb-4" style="margin-top:4px" >Submit</button> 
         </div>
          
         </fieldset>
     </form>
+</div>
 {%endblock %}

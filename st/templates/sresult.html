@@ -1,0 +1,38 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{%block content%}
+
+<table class="table table-hover" style="margin-top:20px;margin-left:30px;width:80%;">
+    <tbody>
+
+        <tr class="table-active">
+    
+          <td>1st semester CGPA : {%if st.cgpa1 != -1.0%}{{st.cgpa1}}{%else%}Not published yet{%endif%}</td> 
+        </tr>
+        <tr class="table-active">    
+            <td>2nd semester CGPA :{%if st.cgpa2 != -1.0%}{{st.cgpa2}}{%else%}Not published yet{%endif%}</td> 
+          </tr>
+          <tr class="table-active">
+         <td>3rd semester CGPA : {%if st.cgpa3 != -1.0%}{{st.cgpa3}}{%else%}Not published yet{%endif%}</td> 
+            </tr>
+            <tr class="table-active">
+                <td>4th semester CGPA : {%if st.cgpa4 != -1.0%}{{st.cgpa4}}{%else%}Not published yet{%endif%}</td> 
+                   </tr>
+                   <tr class="table-active">
+                    <td>5th semester CGPA : {%if st.cgpa5 != -1.0%}{{st.cgpa5}}{%else%}Not published yet{%endif%}</td> 
+                       </tr>
+                       <tr class="table-active">
+                        <td>6th semester CGPA : {%if st.cgpa6 != -1.0%}{{st.cgpa6}}{%else%}Not published yet{%endif%}</td> 
+                           </tr>
+                           <tr class="table-active">
+                            <td>7th semester CGPA : {%if st.cgpa7 != -1.0%}{{st.cgpa7}}{%else%}Not published yet{%endif%}</td> 
+                               </tr>
+                               <tr class="table-active">
+                                <td>8th semester CGPA : {%if st.cgpa8 != -1.0%}{{st.cgpa38}{%else%}Not published yet{%endif%}</td> 
+                                   </tr>
+                                   
+    </tbody>
+</table>
+
+{%endblock %}

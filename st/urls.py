@@ -24,5 +24,6 @@ path('EDIT2/<int:uid>',views.EDIT2,name="EDIT2"),
 path('result/',views.result,name="result"),
 path('result2/<int:id>',views.result2,name="result2"),
 path('result3/<int:id>',views.result3,name="result3"),
+path('sresult/',views.sresult,name="sresult"),
 # path("login/", include("django.contrib.auth.urls")),
 ]

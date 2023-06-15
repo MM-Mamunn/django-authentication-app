@@ -8,6 +8,7 @@ class students(models.Model):
     advisor =models.CharField(max_length=50,null=True,default=None)
     username=models.CharField(max_length=500,null=True,default=None)
     password=models.CharField(max_length=500,null=True,default=None)
+    sem=models.CharField(max_length=50,null=True,default=1)
     cgpa1 = models.FloatField(null=True,default=-1)
     cgpa2 = models.FloatField(null=True,default=-1)
     cgpa3 = models.FloatField(null=True,default=-1)

@@ -22,7 +22,7 @@
               <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto" style="margin-left:60%;">
                   <li class="nav-item">
-                    <a class="nav-link" href="#"  style="font-size:15px"><i class="fa-solid fa-square-poll-horizontal"></i>Result</a>
+                    <a class="nav-link {%if request.path == '/sresult/'%} active {%endif%}" href="/sresult"  style="font-size:15px"><i class="fa-solid fa-square-poll-horizontal"></i>Result</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="/"  style="font-size:15px"><i class="fa-solid fa-user"></i>profile</a>
