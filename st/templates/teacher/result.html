@@ -1,0 +1,14 @@
+{% extends 'teacher/theader.html' %}
+{% load static %}
+
+{%block content%}
+{%for i in stdata%}
+
+<form method="POST" action="{% url 'result2' i.id%} " style="margin-left:22%; width:60%;margin-top:15px; margin-bottom:10px;border:3px solid black;border-radius:5px">
+    {% csrf_token %}
+    <tr class="table-success" style="padding:0">
+        <button type="submit" class="btn btn-info" style="margin:2%;font-size:13px;width:96%;height:100%"><i class="fa-solid fa-pen"></i>  <td>{{i.name|capfirst}}</td></button>  
+      </tr>
+</form>
+{%endfor%}
+{%endblock %}

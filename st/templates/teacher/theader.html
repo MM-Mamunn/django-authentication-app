@@ -39,7 +39,7 @@
                   <li class="nav-item dropdown" style="margin:1px">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:19px"><i class="fa-solid fa-circle-info"></i>Other</a>
                     <div class="dropdown-menu" >
-                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item   {%if request.path == '/result/'%} active {%endif%}" href="/result">Result</a>
                       <a class="dropdown-item" href="#">Another action</a>
                       <a class="dropdown-item" href="#">Something else here</a>
                       <div class="dropdown-divider"></div>

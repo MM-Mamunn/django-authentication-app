@@ -8,6 +8,14 @@ class students(models.Model):
     advisor =models.CharField(max_length=50,null=True,default=None)
     username=models.CharField(max_length=500,null=True,default=None)
     password=models.CharField(max_length=500,null=True,default=None)
+    cgpa1 = models.FloatField(null=True,default=-1)
+    cgpa2 = models.FloatField(null=True,default=-1)
+    cgpa3 = models.FloatField(null=True,default=-1)
+    cgpa4 = models.FloatField(null=True,default=-1)
+    cgpa5 = models.FloatField(null=True,default=-1)
+    cgpa6 = models.FloatField(null=True,default=-1)
+    cgpa7 = models.FloatField(null=True,default=-1)
+    cgpa8 = models.FloatField(null=True,default=-1)
     
     def __str__(self):
         return self.name

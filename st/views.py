@@ -7,6 +7,95 @@ from django.contrib import messages
 from .models import students
 from st.models import teachers
 
+def cgpa_add(request,id,li,n):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            cnt=0
+            st=students.objects.get(pk=id)
+            li2=[]
+            li2.append((st.cgpa1))
+            li2.append((st.cgpa2))
+            li2.append((st.cgpa3))
+            li2.append((st.cgpa4))
+            li2.append((st.cgpa5))
+            li2.append((st.cgpa6))
+            li2.append((st.cgpa7))
+            li2.append((st.cgpa8))
+            for i in li2:
+                if (i) != -1.0:
+                    cnt+=1
+            f = 0
+
+            for i in range(0,cnt):
+                if li[i] == -1:
+                    f = 1
+                    break
+            print(f'li2 {li2[n-1]}')
+            if li2[n-1] == -1.0:
+                if (cnt+1) is not n or f is 1:
+                    print(f'cnt is{cnt}')
+                    print("error")
+                    no=1
+                    # return render(request,'teacher/success.html',{'n':1})
+                    return no
+            print("add_result")
+            print(li)
+            if(n == 1):
+                st.cgpa1=li[0]
+            if(n == 2):
+                st.cgpa2=li[1]
+            if(n == 3):
+                st.cgpa3=li[2]
+            if(n == 4):    
+                st.cgpa4=li[3]
+            if(n == 5):   
+                st.cgpa5=li[4]
+            if(n == 6):
+                st.cgpa6=li[5]
+            if(n == 7):
+                st.cgpa7=li[6]
+            if(n == 8):
+                st.cgpa8=li[7]
+            st.save()
+        else:
+            return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/')
+
+            
+
+# def cgpa_check(request,n,id):
+#     if not request.user.is_superuser and request.user.is_authenticated:
+#         if 'tt' in request.user.username:
+#             if request.method == 'POST':
+#                 n= int(n)
+#                 stdata=students.objects.all()
+#                 li=[]
+#                 for i in stdata:
+#                     if i.username == request.user.username:
+#                         li.append(float(i.cgpa1))
+#                         li.append(float(i.cgpa2))
+#                         li.append(float(i.cgpa3))
+#                         li.append(float(i.cgpa4))
+#                         li.append(float(i.cgpa5))
+#                         li.append(float(i.cgpa6))
+#                         li.append(float(i.cgpa7))
+#                         li.append(float(i.cgpa8))
+#                 cnt= int(cnt)
+#                 cnt =0
+#                 for i in li:
+#                     if int(i) != -1:
+#                         cnt+=1
+#                 f = 0
+#                 for i in range(0,cnt):
+#                     if int(i) != -1:
+#                         f = 1
+#                         break
+#                 if (cnt+1) is not n and f is 1:
+#                     print("error")
+#                     return render(request,'teacher/success.html',{'n':1}) 
+#                     # unsuccess
+                
+
 # Create your views here.
 def home(request):
     if not request.user.is_superuser and request.user.is_authenticated:
@@ -241,3 +330,71 @@ def EDIT2(request,uid):
         else:
             return HttpResponseRedirect('/')
     return HttpResponseRedirect('/')
+
+
+def result(request):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            stdata =students.objects.all()
+            dic={
+                'stdata':stdata
+            }
+            return render(request,'teacher/result.html',dic)
+        return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
+
+def result2(request,id):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+                st=students.objects.get(pk=id)
+                dic={
+                    'id':id,
+                    'st':st,
+                }
+                return render(request,'teacher/result2.html',dic)
+        return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/')
+def result3(request,id):
+    if not request.user.is_superuser and request.user.is_authenticated:
+        if 'tt' in request.user.username:
+            if request.method == 'POST':
+                cgpa1=(request.POST.get('cgpa1'))
+                cgpa2=(request.POST.get('cgpa2'))
+                cgpa3=(request.POST.get('cgpa3'))
+                cgpa4=(request.POST.get('cgpa4'))
+                cgpa5=(request.POST.get('cgpa5'))
+                cgpa6=(request.POST.get('cgpa6'))
+                cgpa7=(request.POST.get('cgpa7'))
+                cgpa8=(request.POST.get('cgpa8'))
+                li=[]
+                li.append((cgpa1))
+                li.append((cgpa2))
+                li.append((cgpa3))
+                li.append((cgpa4))
+                li.append((cgpa5))
+                li.append((cgpa6))
+                li.append((cgpa7))
+                li.append((cgpa8))
+                n=1
+                for i in range(0,8):
+                    if (li[i] != ''):
+                        n=i+1
+                        break
+                print(id)
+                print(li)
+                print(n)
+                no =cgpa_add(request,id,li,n)
+                if no == 1:
+                    return render(request,'teacher/success.html',{'n':0})
+                else:
+                    return render(request,'teacher/success.html',{'n':1})
+            else:
+                pass
+        
+
+        return HttpResponseRedirect('/')
+    
+
+    else:
+        return HttpResponseRedirect('/')

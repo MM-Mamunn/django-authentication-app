@@ -21,6 +21,8 @@ path('searchstudent2/',views.searchstudent2,name="searchstudent2"),
 path('DELETE/<int:id>',views.DELETE,name="DELETE"),
 path('EDIT/<int:id>',views.EDIT,name="EDIT"),
 path('EDIT2/<int:uid>',views.EDIT2,name="EDIT2"),
-
+path('result/',views.result,name="result"),
+path('result2/<int:id>',views.result2,name="result2"),
+path('result3/<int:id>',views.result3,name="result3"),
 # path("login/", include("django.contrib.auth.urls")),
 ]
