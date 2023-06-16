@@ -20,8 +20,15 @@
     <div class="form-group"style="margin:3px" >
     <label for="exampleInput Email1" class="form-label mt-1" style="margin:3px">Enter Roll </label><br>
     <input   type="text" name ="roll" class="form-control" placeholder="Enter Roll" style="width:80%;margin:3px;height:40px"></input ><br>
-    <label for="exampleInput Email1" class="form-label mt-1" style="margin:3px">Enter Advisor:</label><br>
-    <input  class="form-control"  placeholder="Enter Advisor" style="width:80%;margin:3px;height:40px" type="text" name ="advisor" ></input ><br>
+    {% comment %} <label for="exampleInput Email1" class="form-label mt-1" style="margin:3px">Enter Advisor:</label><br>
+    <input  class="form-control"  placeholder="Enter Advisor" style="width:80%;margin:3px;height:40px" type="text" name ="advisor" ></input ><br> {% endcomment %}
+    <label class="form-label" for="form2Example2">Select Advisor's Name</label>
+    <select type="text" id="form2Example1" class="form-control " name="advisor" required>
+  {%for i in tt%}
+  <option type="text" id="form2Example1" class="form-control "value="{{i.user_name}}">{{i.fullname}}</option>
+    {%endfor%}
+</select>
+    
     <br>
     </div>
 
@@ -59,11 +66,15 @@
       </tr>
       <tr class="table-dark">
         <td>CGPA </td>
+        {%if st.cgpa is none %}
+        <td>None</td>
+        {%else%}
         <td>{{st.cgpa|floatformat:2}}</td>
+      {%endif%}
       </tr>
       <tr class="table-dark">
         <td>Advisor</td>
-        <td>{{st.advisor}}</td>
+        <td>{{st.advisor|capfirst}}</td>
       </tr>
       <tr class="table-active">
         <td>Delete  <i class="fa-sharp fa-solid fa-diamond-turn-right fa-lg"></i></td>

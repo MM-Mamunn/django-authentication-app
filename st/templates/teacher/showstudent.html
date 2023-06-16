@@ -32,7 +32,11 @@
       </tr>
       <tr class="table-dark">
         <td>CGPA </td>
+        {%if i.cgpa is none %}
+        <td>None</td>
+        {%else%}
         <td>{{i.cgpa|floatformat:2}}</td>
+      {%endif%}
       </tr>
       <tr class="table-dark">
         <td>Advisor</td>

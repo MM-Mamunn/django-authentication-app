@@ -25,15 +25,15 @@ def cgpa_add(request,id,li,n):
             for i in li2:
                 if (i) != -1.0:
                     cnt+=1
-            f = 0
-
-            for i in range(0,cnt):
-                if li[i] == -1:
-                    f = 1
-                    break
+            # f = 0
+            # print(f' li is {li}')
+            # for i in range(0,cnt):
+            #     if li[i] == -1:
+            #         f = 1
+            #         break
             print(f'li2 {li2[n-1]}')
             if li2[n-1] == -1.0:
-                if (cnt+1) is not n or f is 1:
+                if (cnt+1) is not n :
                     print(f'cnt is{cnt}')
                     print("error")
                     no=1
@@ -190,6 +190,8 @@ def login2(request):
             login(request, user2)
             # using redirect to activate '/' url to hover on profile
             return HttpResponseRedirect('/')
+        return render(request,'teacher/success.html',{'n':0}) 
+
         
     return HttpResponseRedirect('/')
 
@@ -311,8 +313,13 @@ def EDIT(request,id):
     if not request.user.is_superuser and request.user.is_authenticated:
         if 'tt' in request.user.username:
             st=students.objects.get(pk=id)
+            tt=teachers.objects.all()
             dic={'uid':id,
-                'st':st}
+                'st':st,
+                'tt':tt}
+            
+
+            
             return render(request,'teacher/EDIT.html',dic)
         else:
             return HttpResponseRedirect('/')
@@ -323,6 +330,7 @@ def EDIT2(request,uid):
         if 'tt' in request.user.username:
             roll=request.POST.get('roll')
             advisor=request.POST.get('advisor')
+            advisor= re.sub(r'.','',advisor,count=2)
             st=students.objects.get(pk=uid)
             if roll is not '':
                 st.roll=roll
@@ -338,9 +346,17 @@ def EDIT2(request,uid):
 def result(request):
     if not request.user.is_superuser and request.user.is_authenticated:
         if 'tt' in request.user.username:
+
             stdata =students.objects.all()
+            l=[]
+            for i in stdata:
+                t = 'tt'+i.advisor
+                # if authenticate(request,username=i.username,password=i.password): 
+                if t == request.user.username:
+                    l.append(i)
+            
             dic={
-                'stdata':stdata
+                'stdata':l
             }
             return render(request,'teacher/result.html',dic)
         return HttpResponseRedirect('/')
@@ -384,9 +400,9 @@ def result3(request,id):
                     if (li[i] != ''):
                         n=i+1
                         break
-                print(id)
-                print(li)
-                print(n)
+                # print(id)
+                # print(li)
+                # print(n)
                 no =cgpa_add(request,id,li,n)
                 if no == 1:
                     return render(request,'teacher/success.html',{'n':0})
