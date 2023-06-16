@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from .models import students
 from st.models import teachers
+import re
 
 def cgpa_add(request,id,li,n):
     if not request.user.is_superuser and request.user.is_authenticated:
@@ -96,37 +97,7 @@ def cgpa_add(request,id,li,n):
 
             
 
-# def cgpa_check(request,n,id):
-#     if not request.user.is_superuser and request.user.is_authenticated:
-#         if 'tt' in request.user.username:
-#             if request.method == 'POST':
-#                 n= int(n)
-#                 stdata=students.objects.all()
-#                 li=[]
-#                 for i in stdata:
-#                     if i.username == request.user.username:
-#                         li.append(float(i.cgpa1))
-#                         li.append(float(i.cgpa2))
-#                         li.append(float(i.cgpa3))
-#                         li.append(float(i.cgpa4))
-#                         li.append(float(i.cgpa5))
-#                         li.append(float(i.cgpa6))
-#                         li.append(float(i.cgpa7))
-#                         li.append(float(i.cgpa8))
-#                 cnt= int(cnt)
-#                 cnt =0
-#                 for i in li:
-#                     if int(i) != -1:
-#                         cnt+=1
-#                 f = 0
-#                 for i in range(0,cnt):
-#                     if int(i) != -1:
-#                         f = 1
-#                         break
-#                 if (cnt+1) is not n and f is 1:
-#                     print("error")
-#                     return render(request,'teacher/success.html',{'n':1}) 
-#                     # unsuccess
+
                 
 
 # Create your views here.
@@ -168,7 +139,11 @@ def home(request):
 def signupts(request):
     return render(request, "signints.html")   
 def signup(request):
-    return render(request, "signin.html")
+    ttdata=teachers.objects.all()
+    dic={
+        'tt':ttdata
+    }
+    return render(request, "signin.html",dic)
 def signup2(request):
 
     if request.method == 'POST':
@@ -178,6 +153,7 @@ def signup2(request):
         password=request.POST.get('password')
         username=request.POST.get('username')
         advisor=request.POST.get('advisor')
+        advisor= re.sub(r'.','',advisor,count=2)
         username = 'st'+username
         
         myuser= User.objects.create_user(username,email,password)
@@ -187,9 +163,7 @@ def signup2(request):
         ns = students(name=f'{fname} {lname}' ,username =username,password = password,advisor=advisor)
         ns.save()
         # else
-        messages.success(request,"Signup successfull")
-        
-        return HttpResponseRedirect('/')
+        return render(request,'teacher/success.html',{'n':1}) 
     else:
         return HttpResponseRedirect('/')
 def logoutmain(request):
@@ -263,11 +237,10 @@ def tsignup(request):
         nt = teachers(fullname=f'{fname} {lname}' ,user_name =username,password = password,teachers_id=idd,department=dept)
         nt.save()
         # else
-        messages.success(request,"Signup successfull")
+        return render(request,'teacher/success.html',{'n':1}) 
         
-        return HttpResponseRedirect('/')
     else:
-        return HttpResponseRedirect('/')
+        return render(request,'teacher/success.html',{'n':0}) 
     
 def allstudent(request):
     if not request.user.is_superuser and request.user.is_authenticated:

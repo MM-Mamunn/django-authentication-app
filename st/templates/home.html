@@ -23,7 +23,11 @@
     </tr>
     <tr class="table-dark">
       <td>Semester </td>
+      {%if data.sem == '9' %}
+      <td>Graduated</td>
+      {%else%}
       <td>{{data.sem}}(th)</td>
+      {%endif%}
     </tr>
     <tr class="table-dark">
       <td>CGPA </td>

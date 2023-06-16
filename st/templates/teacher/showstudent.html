@@ -2,9 +2,9 @@
 {% load static %}
 
 {%block content%}
-<span class="badge bg-success " style="margin-top:20px;margin-left:30px;height:40px;font-size:25px;">Search Results</span>
+<span class="badge bg-success " style="margin-top:20px;margin-left:85px;height:40px;font-size:25px;">Search Results</span>
 {%for i in data%}
-<table class="table table-hover" style="margin-top:20px;margin-left:30px;width:80%;">
+<table class="table table-hover"  style="margin-top:20px;margin-left:130px;width:80%;border:4px double black;border-color:red;border-radius:5px">
     <thead>
       <tr>
         
@@ -24,7 +24,11 @@
       </tr>
       <tr class="table-dark">
         <td>Semester </td>
-        <td>{{i.sem}}(th)</td>
+        {%if i.sem == '9' %}
+      <td>Graduated</td>
+      {%else%}
+      <td>{{i.sem}}(th)</td>
+      {%endif%}
       </tr>
       <tr class="table-dark">
         <td>CGPA </td>
@@ -37,16 +41,18 @@
       <tr class="table-active">
         <td>Delete & Update <i class="fa-sharp fa-solid fa-diamond-turn-right fa-lg"></i></td>
         <td>
+      
           <form action="{% url 'DELETE' i.id %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{i.username}}</button>
+            <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{i.name}}</button>
             {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
           </form>
-          <form action="{% url 'EDIT' i.id %}" method="post">
+          <form action="{% url 'EDIT' i.id %}" method="post" style="margin-top:2px">
             {% csrf_token %}
             <button type="submit" class="btn btn-info" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-pen"></i>Edit</button>
             {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
           </form>
+        
         </td>
       </tr>
     </tbody>

@@ -22,10 +22,10 @@
               <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto" style="margin-left:60%;">
                   <li class="nav-item">
-                    <a class="nav-link {%if request.path == '/sresult/'%} active {%endif%}" href="/sresult"  style="font-size:15px"><i class="fa-solid fa-square-poll-horizontal"></i>Result</a>
+                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="/"  style="font-size:15px"><i class="fa-solid fa-user"></i>profile</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="/"  style="font-size:15px"><i class="fa-solid fa-user"></i>profile</a>
+                    <a class="nav-link {%if request.path == '/sresult/'%} active {%endif%}" href="/sresult"  style="font-size:15px"><i class="fa-solid fa-square-poll-horizontal"></i>Result</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link {%if request.path == '/advisor/'%} active {%endif%}" href="/advisor" style="font-size:15px"><i class="fa-sharp fa-solid fa-person-chalkboard"></i>advisor</a>
@@ -45,5 +45,8 @@
     {%endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+  
+
   {% include 'footer.html' %}
+
 </html>

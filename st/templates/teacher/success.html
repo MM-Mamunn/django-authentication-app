@@ -1,10 +1,26 @@
-{% extends 'teacher/theader.html' %}
 {% load static %}
-
-{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href ="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <a  href="/"><button type="button" class="btn btn-primary" style="margin:8px 50px 5px 40% ;height:50px;width:200px;">
+    home </button></a><br>
 {%if n == 1%}
-<h1>Successfull</h1>
+<span class="badge bg-success" style="margin-top:5px;margin-left:150px;height:300px;width:70%;font-size:40px;padding:120px"><i class="fa-solid fa-badge-check"></i>Successfull</span>
 {%else%}
-<h1>UnSuccessfull</h1>
+<span class="badge bg-danger" style="margin-top:5px;;margin-left:150px;height:300px;width:70%;font-size:40px;padding:120px"><i class="fa-solid fa-square-exclamation"></i>Unsuccessfull</span>
 {%endif%}
-{%endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+{% include 'footer.html' %}
+
+</html>

@@ -72,9 +72,17 @@
             <label class="form-label" for="form2Example1">Enter Last name</label>
             <input type="text" id="form2Example1" class="form-control " name="lname" required/>
           </div>
+
           <div class="form-outline  ms-2 me-2">
-            <label class="form-label" for="form2Example2">Enter Advisor Name</label>
-            <input type="text" id="form2Example2" name="advisor" class="form-control name=password" required />
+            <label class="form-label" for="form2Example2">Select Advisor's Name</label>
+            <select type="text" id="form2Example1" class="form-control " name="advisor" required>
+          {%for i in tt%}
+          <option type="text" id="form2Example1" class="form-control "value="{{i.user_name}}">{{i.fullname}}</option>
+            {%endfor%}
+        </select>
+
+
+            {% comment %} <input type="text" id="form2Example2" name="advisor" class="form-control name=password" required /> {% endcomment %}
           </div>
           <div class="form-outline ms-2 mt-1 me-2">
             <label class="form-label" for="form2Example1">Enter Email</label>

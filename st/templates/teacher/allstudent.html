@@ -74,7 +74,7 @@ odd
 {%endif%}
 
 
-<table class="table table-hover" style="margin-top:20px;margin:20px;width:80%;max-width:710px;">
+<table class="table table-hover" style="margin-top:20px;margin:20px;width:80%;max-width:710px;border:4px double black;border-color:red;border-radius:5px">
     <thead>
       <tr class ="table-dark">
         
@@ -95,7 +95,11 @@ odd
       </tr>
       <tr class="table-success">
         <td>Semester </td>
-        <td>{{i.sem}}(th)</td>
+        {%if i.sem == '9' %}
+      <td>Graduated</td>
+      {%else%}
+      <td>{{i.sem}}(th)</td>
+      {%endif%}
       </tr>
       <tr class="table-success">
         <td>CGPA </td>
@@ -113,7 +117,7 @@ odd
             <button type="submit" class="btn btn-danger" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-trash"> </i>Delete-{{i.name}}</button>
             {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}
           </form>
-          <form action="{% url 'EDIT' i.id %}" method="post">
+          <form action="{% url 'EDIT' i.id %}" method="post"  style="margin-top:2px">
             {% csrf_token %}
             <button type="submit" class="btn btn-info" style="margin-left:2%;font-size:13px"><i class="fa-solid fa-pen"></i>Edit</button>
             {% comment %} <button type="submit"><i class="fa-solid fa-trash"></i>Delete {{i.username}}</button> {% endcomment %}

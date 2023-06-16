@@ -24,7 +24,7 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarColor01"  style="margin-right:10px">
-                <ul class="navbar-nav me-auto" style="margin-left:47%;">
+                <ul class="navbar-nav me-auto" style="margin-left:45%;">
                   <li class="nav-item" style="margin:1px">
                     <a class="nav-link {%if request.path == '/'%} active {%endif%}" href="/" style="width: 120px;font-size:18px"><i class="fa-solid fa-user"></i>Profile</a>
                   </li>  
@@ -36,19 +36,22 @@
                   <li class="nav-item" style="margin:1px">
                     <a class="nav-link {%if request.path == '/searchstudent/'%} active {%elif request.path == '/searchstudent2/'%} active {%endif%}" href="/searchstudent" style="width: 90px;font-size:15px"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
                   </li>
+                  <li class="nav-item" style="margin:1px">
+                    <a class="nav-link {%if request.path == '/result/'%} active {%endif%}" href="/result"style="width: 120px;font-size:18px"><i class="fa-solid fa-square-poll-horizontal"></i> Result</a>
+                  </li>
                   <li class="nav-item dropdown" style="margin:1px">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:19px"><i class="fa-solid fa-circle-info"></i>Other</a>
                     <div class="dropdown-menu" >
-                      <a class="dropdown-item   {%if request.path == '/result/'%} active {%endif%}" href="/result">Result</a>
+                      <a class="dropdown-item   {%if request.path == '/result/'%} active {%endif%}" href="/result"><i class="fa-solid fa-square-poll-horizontal"></i> Result</a>
                       <a class="dropdown-item" href="#">Another action</a>
                       <a class="dropdown-item" href="#">Something else here</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Separated link</a>
+                      <a class="dropdown-item"  href="/logoutmain" style="width: 120px;font-size:19px"><i class="fa-solid fa-right-from-bracket"></i>logout</a>
                     </div>
                   </li>               
-                  <li class="nav-item" style="margin:1px">
+                  {% comment %} <li class="nav-item" style="margin:1px">
                     <a class="nav-link" href="/logoutmain" style="width: 120px;font-size:19px"><i class="fa-solid fa-right-from-bracket"></i>logout</a>
-                  </li>
+                  </li> {% endcomment %}
                   
                 </ul>
                 
